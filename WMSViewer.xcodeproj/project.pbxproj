@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F721CFE11AC0B79B00EEA29C /* JMStatefulTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F721CFD41AC0B79B00EEA29C /* JMStatefulTableViewController.m */; };
+		F721CFE21AC0B79B00EEA29C /* JMStatefulTableViewEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = F721CFD61AC0B79B00EEA29C /* JMStatefulTableViewEmptyView.m */; };
+		F721CFE31AC0B79B00EEA29C /* JMStatefulTableViewErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F721CFD81AC0B79B00EEA29C /* JMStatefulTableViewErrorView.m */; };
+		F721CFE41AC0B79B00EEA29C /* JMStatefulTableViewLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F721CFDA1AC0B79B00EEA29C /* JMStatefulTableViewLoadingView.m */; };
+		F721CFE51AC0B79B00EEA29C /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = F721CFDE1AC0B79B00EEA29C /* UIScrollView+SVInfiniteScrolling.m */; };
+		F721CFE61AC0B79B00EEA29C /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = F721CFE01AC0B79B00EEA29C /* UIScrollView+SVPullToRefresh.m */; };
+		F721CFED1AC0B7A900EEA29C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F721CFE81AC0B7A900EEA29C /* MainStoryboard.storyboard */; };
+		F721CFEE1AC0B7A900EEA29C /* WTResourceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F721CFE91AC0B7A900EEA29C /* WTResourceTableViewController.m */; };
+		F721CFEF1AC0B7A900EEA29C /* WTTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F721CFEB1AC0B7A900EEA29C /* WTTableViewController.m */; };
+		F721CFF41AC0E04700EEA29C /* WMSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F721CFF31AC0E04700EEA29C /* WMSTableViewController.m */; };
 		F761F1911AB08F270072382A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F761F1901AB08F270072382A /* main.m */; };
 		F761F1941AB08F270072382A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F761F1931AB08F270072382A /* AppDelegate.m */; };
 		F761F1971AB08F270072382A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F761F1961AB08F270072382A /* ViewController.m */; };
@@ -14,6 +24,24 @@
 		F761F19C1AB08F270072382A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F761F19B1AB08F270072382A /* Images.xcassets */; };
 		F761F19F1AB08F270072382A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F761F19D1AB08F270072382A /* LaunchScreen.xib */; };
 		F761F1AB1AB08F270072382A /* WMSViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F761F1AA1AB08F270072382A /* WMSViewerTests.m */; };
+		F7BC50F91AB090EE00AD5EFD /* libWhirlyGlobe-MaplyComponent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BC50F81AB090DA00AD5EFD /* libWhirlyGlobe-MaplyComponent.a */; };
+		F7BC50FB1AB090FE00AD5EFD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BC50FA1AB090FE00AD5EFD /* CoreLocation.framework */; };
+		F7BC50FD1AB0910600AD5EFD /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BC50FC1AB0910600AD5EFD /* libc++.dylib */; };
+		F7BC50FF1AB0910D00AD5EFD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BC50FE1AB0910D00AD5EFD /* libz.dylib */; };
+		F7BC51011AB0911400AD5EFD /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BC51001AB0911400AD5EFD /* libxml2.dylib */; };
+		F7BC51031AB0911B00AD5EFD /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BC51021AB0911B00AD5EFD /* libsqlite3.dylib */; };
+		F7BC51081AB0935600AD5EFD /* geography-class_medres.mbtiles in Resources */ = {isa = PBXBuildFile; fileRef = F7BC51071AB0935600AD5EFD /* geography-class_medres.mbtiles */; };
+		F7BC511D1AB098CA00AD5EFD /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC510B1AB098CA00AD5EFD /* AFHTTPRequestOperation.m */; };
+		F7BC511E1AB098CA00AD5EFD /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC510D1AB098CA00AD5EFD /* AFHTTPRequestOperationManager.m */; };
+		F7BC511F1AB098CA00AD5EFD /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC510F1AB098CA00AD5EFD /* AFHTTPSessionManager.m */; };
+		F7BC51201AB098CA00AD5EFD /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC51121AB098CA00AD5EFD /* AFNetworkReachabilityManager.m */; };
+		F7BC51211AB098CA00AD5EFD /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC51141AB098CA00AD5EFD /* AFSecurityPolicy.m */; };
+		F7BC51221AB098CA00AD5EFD /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC51161AB098CA00AD5EFD /* AFURLConnectionOperation.m */; };
+		F7BC51231AB098CA00AD5EFD /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC51181AB098CA00AD5EFD /* AFURLRequestSerialization.m */; };
+		F7BC51241AB098CA00AD5EFD /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC511A1AB098CA00AD5EFD /* AFURLResponseSerialization.m */; };
+		F7BC51251AB098CA00AD5EFD /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC511C1AB098CA00AD5EFD /* AFURLSessionManager.m */; };
+		F7BC513D1AB09AC900AD5EFD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BC513C1AB09AC900AD5EFD /* CFNetwork.framework */; };
+		F7BC513F1AB09AE600AD5EFD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BC513E1AB09AE600AD5EFD /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,9 +52,36 @@
 			remoteGlobalIDString = F761F18A1AB08F270072382A;
 			remoteInfo = WMSViewer;
 		};
+		F7BC50F71AB090DA00AD5EFD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7BC50F21AB090DA00AD5EFD /* WhirlyGlobe-MaplyComponent.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2B11E0DB15B4C030007AAE3F;
+			remoteInfo = "WhirlyGlobe-MaplyComponent";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F721CFD31AC0B79B00EEA29C /* JMStatefulTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMStatefulTableViewController.h; sourceTree = "<group>"; };
+		F721CFD41AC0B79B00EEA29C /* JMStatefulTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMStatefulTableViewController.m; sourceTree = "<group>"; };
+		F721CFD51AC0B79B00EEA29C /* JMStatefulTableViewEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMStatefulTableViewEmptyView.h; sourceTree = "<group>"; };
+		F721CFD61AC0B79B00EEA29C /* JMStatefulTableViewEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMStatefulTableViewEmptyView.m; sourceTree = "<group>"; };
+		F721CFD71AC0B79B00EEA29C /* JMStatefulTableViewErrorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMStatefulTableViewErrorView.h; sourceTree = "<group>"; };
+		F721CFD81AC0B79B00EEA29C /* JMStatefulTableViewErrorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMStatefulTableViewErrorView.m; sourceTree = "<group>"; };
+		F721CFD91AC0B79B00EEA29C /* JMStatefulTableViewLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMStatefulTableViewLoadingView.h; sourceTree = "<group>"; };
+		F721CFDA1AC0B79B00EEA29C /* JMStatefulTableViewLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMStatefulTableViewLoadingView.m; sourceTree = "<group>"; };
+		F721CFDC1AC0B79B00EEA29C /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
+		F721CFDD1AC0B79B00EEA29C /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		F721CFDE1AC0B79B00EEA29C /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
+		F721CFDF1AC0B79B00EEA29C /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		F721CFE01AC0B79B00EEA29C /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
+		F721CFE81AC0B7A900EEA29C /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		F721CFE91AC0B7A900EEA29C /* WTResourceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTResourceTableViewController.m; sourceTree = "<group>"; };
+		F721CFEA1AC0B7A900EEA29C /* WTResourceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTResourceTableViewController.h; sourceTree = "<group>"; };
+		F721CFEB1AC0B7A900EEA29C /* WTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTableViewController.m; sourceTree = "<group>"; };
+		F721CFEC1AC0B7A900EEA29C /* WTTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTableViewController.h; sourceTree = "<group>"; };
+		F721CFF21AC0E04700EEA29C /* WMSTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMSTableViewController.h; sourceTree = "<group>"; };
+		F721CFF31AC0E04700EEA29C /* WMSTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMSTableViewController.m; sourceTree = "<group>"; };
 		F761F18B1AB08F270072382A /* WMSViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WMSViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F761F18F1AB08F270072382A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F761F1901AB08F270072382A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +95,34 @@
 		F761F1A41AB08F270072382A /* WMSViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WMSViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F761F1A91AB08F270072382A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F761F1AA1AB08F270072382A /* WMSViewerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMSViewerTests.m; sourceTree = "<group>"; };
+		F7BC50F21AB090DA00AD5EFD /* WhirlyGlobe-MaplyComponent.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "WhirlyGlobe-MaplyComponent.xcodeproj"; path = "libs/WhirlyGlobeMaply/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/WhirlyGlobe-MaplyComponent.xcodeproj"; sourceTree = "<group>"; };
+		F7BC50FA1AB090FE00AD5EFD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F7BC50FC1AB0910600AD5EFD /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		F7BC50FE1AB0910D00AD5EFD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		F7BC51001AB0911400AD5EFD /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		F7BC51021AB0911B00AD5EFD /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		F7BC51071AB0935600AD5EFD /* geography-class_medres.mbtiles */ = {isa = PBXFileReference; lastKnownFileType = file; name = "geography-class_medres.mbtiles"; path = "libs/WhirlyGlobeMaply/resources/base_maps/geography-class_medres.mbtiles"; sourceTree = SOURCE_ROOT; };
+		F7BC510A1AB098CA00AD5EFD /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		F7BC510B1AB098CA00AD5EFD /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		F7BC510C1AB098CA00AD5EFD /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		F7BC510D1AB098CA00AD5EFD /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		F7BC510E1AB098CA00AD5EFD /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		F7BC510F1AB098CA00AD5EFD /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		F7BC51101AB098CA00AD5EFD /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		F7BC51111AB098CA00AD5EFD /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		F7BC51121AB098CA00AD5EFD /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		F7BC51131AB098CA00AD5EFD /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		F7BC51141AB098CA00AD5EFD /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		F7BC51151AB098CA00AD5EFD /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		F7BC51161AB098CA00AD5EFD /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		F7BC51171AB098CA00AD5EFD /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		F7BC51181AB098CA00AD5EFD /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		F7BC51191AB098CA00AD5EFD /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		F7BC511A1AB098CA00AD5EFD /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		F7BC511B1AB098CA00AD5EFD /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		F7BC511C1AB098CA00AD5EFD /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		F7BC513C1AB09AC900AD5EFD /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		F7BC513E1AB09AE600AD5EFD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +130,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7BC513F1AB09AE600AD5EFD /* Foundation.framework in Frameworks */,
+				F7BC513D1AB09AC900AD5EFD /* CFNetwork.framework in Frameworks */,
+				F7BC51031AB0911B00AD5EFD /* libsqlite3.dylib in Frameworks */,
+				F7BC51011AB0911400AD5EFD /* libxml2.dylib in Frameworks */,
+				F7BC50FF1AB0910D00AD5EFD /* libz.dylib in Frameworks */,
+				F7BC50FD1AB0910600AD5EFD /* libc++.dylib in Frameworks */,
+				F7BC50FB1AB090FE00AD5EFD /* CoreLocation.framework in Frameworks */,
+				F7BC50F91AB090EE00AD5EFD /* libWhirlyGlobe-MaplyComponent.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,9 +151,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F721CFD21AC0B79B00EEA29C /* JMStatefulTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F721CFD31AC0B79B00EEA29C /* JMStatefulTableViewController.h */,
+				F721CFD41AC0B79B00EEA29C /* JMStatefulTableViewController.m */,
+				F721CFD51AC0B79B00EEA29C /* JMStatefulTableViewEmptyView.h */,
+				F721CFD61AC0B79B00EEA29C /* JMStatefulTableViewEmptyView.m */,
+				F721CFD71AC0B79B00EEA29C /* JMStatefulTableViewErrorView.h */,
+				F721CFD81AC0B79B00EEA29C /* JMStatefulTableViewErrorView.m */,
+				F721CFD91AC0B79B00EEA29C /* JMStatefulTableViewLoadingView.h */,
+				F721CFDA1AC0B79B00EEA29C /* JMStatefulTableViewLoadingView.m */,
+			);
+			path = JMStatefulTableViewController;
+			sourceTree = "<group>";
+		};
+		F721CFDB1AC0B79B00EEA29C /* SVPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				F721CFDC1AC0B79B00EEA29C /* SVPullToRefresh.h */,
+				F721CFDD1AC0B79B00EEA29C /* UIScrollView+SVInfiniteScrolling.h */,
+				F721CFDE1AC0B79B00EEA29C /* UIScrollView+SVInfiniteScrolling.m */,
+				F721CFDF1AC0B79B00EEA29C /* UIScrollView+SVPullToRefresh.h */,
+				F721CFE01AC0B79B00EEA29C /* UIScrollView+SVPullToRefresh.m */,
+			);
+			path = SVPullToRefresh;
+			sourceTree = "<group>";
+		};
 		F761F1821AB08F270072382A = {
 			isa = PBXGroup;
 			children = (
+				F7BC513E1AB09AE600AD5EFD /* Foundation.framework */,
+				F7BC513C1AB09AC900AD5EFD /* CFNetwork.framework */,
+				F7BC51021AB0911B00AD5EFD /* libsqlite3.dylib */,
+				F7BC51001AB0911400AD5EFD /* libxml2.dylib */,
+				F7BC50FE1AB0910D00AD5EFD /* libz.dylib */,
+				F7BC50FC1AB0910600AD5EFD /* libc++.dylib */,
+				F7BC50FA1AB090FE00AD5EFD /* CoreLocation.framework */,
+				F7BC50F21AB090DA00AD5EFD /* WhirlyGlobe-MaplyComponent.xcodeproj */,
 				F761F18D1AB08F270072382A /* WMSViewer */,
 				F761F1A71AB08F270072382A /* WMSViewerTests */,
 				F761F18C1AB08F270072382A /* Products */,
@@ -81,6 +207,17 @@
 		F761F18D1AB08F270072382A /* WMSViewer */ = {
 			isa = PBXGroup;
 			children = (
+				F721CFE81AC0B7A900EEA29C /* MainStoryboard.storyboard */,
+				F721CFE91AC0B7A900EEA29C /* WTResourceTableViewController.m */,
+				F721CFF21AC0E04700EEA29C /* WMSTableViewController.h */,
+				F721CFF31AC0E04700EEA29C /* WMSTableViewController.m */,
+				F721CFEA1AC0B7A900EEA29C /* WTResourceTableViewController.h */,
+				F721CFEB1AC0B7A900EEA29C /* WTTableViewController.m */,
+				F721CFEC1AC0B7A900EEA29C /* WTTableViewController.h */,
+				F721CFD21AC0B79B00EEA29C /* JMStatefulTableViewController */,
+				F721CFDB1AC0B79B00EEA29C /* SVPullToRefresh */,
+				F7BC51091AB098CA00AD5EFD /* AFNetworking */,
+				F7BC51041AB0930100AD5EFD /* Resources */,
 				F761F1921AB08F270072382A /* AppDelegate.h */,
 				F761F1931AB08F270072382A /* AppDelegate.m */,
 				F761F1951AB08F270072382A /* ViewController.h */,
@@ -118,6 +255,49 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		F7BC50F31AB090DA00AD5EFD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7BC50F81AB090DA00AD5EFD /* libWhirlyGlobe-MaplyComponent.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F7BC51041AB0930100AD5EFD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F7BC51071AB0935600AD5EFD /* geography-class_medres.mbtiles */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F7BC51091AB098CA00AD5EFD /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				F7BC510A1AB098CA00AD5EFD /* AFHTTPRequestOperation.h */,
+				F7BC510B1AB098CA00AD5EFD /* AFHTTPRequestOperation.m */,
+				F7BC510C1AB098CA00AD5EFD /* AFHTTPRequestOperationManager.h */,
+				F7BC510D1AB098CA00AD5EFD /* AFHTTPRequestOperationManager.m */,
+				F7BC510E1AB098CA00AD5EFD /* AFHTTPSessionManager.h */,
+				F7BC510F1AB098CA00AD5EFD /* AFHTTPSessionManager.m */,
+				F7BC51101AB098CA00AD5EFD /* AFNetworking.h */,
+				F7BC51111AB098CA00AD5EFD /* AFNetworkReachabilityManager.h */,
+				F7BC51121AB098CA00AD5EFD /* AFNetworkReachabilityManager.m */,
+				F7BC51131AB098CA00AD5EFD /* AFSecurityPolicy.h */,
+				F7BC51141AB098CA00AD5EFD /* AFSecurityPolicy.m */,
+				F7BC51151AB098CA00AD5EFD /* AFURLConnectionOperation.h */,
+				F7BC51161AB098CA00AD5EFD /* AFURLConnectionOperation.m */,
+				F7BC51171AB098CA00AD5EFD /* AFURLRequestSerialization.h */,
+				F7BC51181AB098CA00AD5EFD /* AFURLRequestSerialization.m */,
+				F7BC51191AB098CA00AD5EFD /* AFURLResponseSerialization.h */,
+				F7BC511A1AB098CA00AD5EFD /* AFURLResponseSerialization.m */,
+				F7BC511B1AB098CA00AD5EFD /* AFURLSessionManager.h */,
+				F7BC511C1AB098CA00AD5EFD /* AFURLSessionManager.m */,
+			);
+			name = AFNetworking;
+			path = "libs/WhirlyGlobeMaply/third-party/AFNetworking/AFNetworking";
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -168,6 +348,7 @@
 				TargetAttributes = {
 					F761F18A1AB08F270072382A = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 6KLGQUFF42;
 					};
 					F761F1A31AB08F270072382A = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -186,6 +367,12 @@
 			mainGroup = F761F1821AB08F270072382A;
 			productRefGroup = F761F18C1AB08F270072382A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F7BC50F31AB090DA00AD5EFD /* Products */;
+					ProjectRef = F7BC50F21AB090DA00AD5EFD /* WhirlyGlobe-MaplyComponent.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F761F18A1AB08F270072382A /* WMSViewer */,
@@ -194,11 +381,23 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		F7BC50F81AB090DA00AD5EFD /* libWhirlyGlobe-MaplyComponent.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libWhirlyGlobe-MaplyComponent.a";
+			remoteRef = F7BC50F71AB090DA00AD5EFD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		F761F1891AB08F270072382A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7BC51081AB0935600AD5EFD /* geography-class_medres.mbtiles in Resources */,
+				F721CFED1AC0B7A900EEA29C /* MainStoryboard.storyboard in Resources */,
 				F761F19A1AB08F270072382A /* Main.storyboard in Resources */,
 				F761F19F1AB08F270072382A /* LaunchScreen.xib in Resources */,
 				F761F19C1AB08F270072382A /* Images.xcassets in Resources */,
@@ -219,9 +418,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F721CFEF1AC0B7A900EEA29C /* WTTableViewController.m in Sources */,
+				F7BC511D1AB098CA00AD5EFD /* AFHTTPRequestOperation.m in Sources */,
 				F761F1971AB08F270072382A /* ViewController.m in Sources */,
+				F7BC511E1AB098CA00AD5EFD /* AFHTTPRequestOperationManager.m in Sources */,
+				F7BC51201AB098CA00AD5EFD /* AFNetworkReachabilityManager.m in Sources */,
+				F721CFF41AC0E04700EEA29C /* WMSTableViewController.m in Sources */,
+				F7BC51241AB098CA00AD5EFD /* AFURLResponseSerialization.m in Sources */,
+				F721CFE11AC0B79B00EEA29C /* JMStatefulTableViewController.m in Sources */,
+				F7BC51221AB098CA00AD5EFD /* AFURLConnectionOperation.m in Sources */,
+				F7BC51211AB098CA00AD5EFD /* AFSecurityPolicy.m in Sources */,
+				F7BC511F1AB098CA00AD5EFD /* AFHTTPSessionManager.m in Sources */,
+				F721CFE21AC0B79B00EEA29C /* JMStatefulTableViewEmptyView.m in Sources */,
+				F7BC51231AB098CA00AD5EFD /* AFURLRequestSerialization.m in Sources */,
+				F7BC51251AB098CA00AD5EFD /* AFURLSessionManager.m in Sources */,
+				F721CFE41AC0B79B00EEA29C /* JMStatefulTableViewLoadingView.m in Sources */,
 				F761F1941AB08F270072382A /* AppDelegate.m in Sources */,
+				F721CFE61AC0B79B00EEA29C /* UIScrollView+SVPullToRefresh.m in Sources */,
+				F721CFEE1AC0B7A900EEA29C /* WTResourceTableViewController.m in Sources */,
 				F761F1911AB08F270072382A /* main.m in Sources */,
+				F721CFE31AC0B79B00EEA29C /* JMStatefulTableViewErrorView.m in Sources */,
+				F721CFE51AC0B79B00EEA29C /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,9 +562,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(SRCROOT)/libs/WhirlyGlobeMaply/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/\"",
+					"\"$(SRCROOT)/libs/WhirlyGlobeMaply/third-party/KissXML/\"",
+					/usr/include/libxml2/,
+				);
 				INFOPLIST_FILE = WMSViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -355,9 +582,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(SRCROOT)/libs/WhirlyGlobeMaply/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/\"",
+					"\"$(SRCROOT)/libs/WhirlyGlobeMaply/third-party/KissXML/\"",
+					/usr/include/libxml2/,
+				);
 				INFOPLIST_FILE = WMSViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -414,6 +651,7 @@
 				F761F1B01AB08F270072382A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F761F1B11AB08F270072382A /* Build configuration list for PBXNativeTarget "WMSViewerTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +660,7 @@
 				F761F1B31AB08F270072382A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WhirlyGlobeComponent.h>
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *AddLayer;
 
 @end
 
