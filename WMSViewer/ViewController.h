@@ -10,8 +10,10 @@
 #import <WhirlyGlobeComponent.h>
 
 @interface ViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *ClearLayers;
 
 @property (weak, nonatomic) IBOutlet UIButton *AddLayer;
+@property (weak, nonatomic) IBOutlet UIButton *ClearAll;
 
 @end
 

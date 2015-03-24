@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WhirlyGlobeComponent.h>
 
 @interface WMSTableViewController : UITableViewController
+@property(nonatomic, strong) NSDictionary *result;
 
 @end

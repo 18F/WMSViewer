@@ -181,7 +181,7 @@
     dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
         NSLog(@"initial loading..");
         // 1
-        NSString *string = [NSString stringWithFormat:@"https://data.noaa.gov/api/3/action/package_search?q=res_format:WMS&rows=20"];
+        NSString *string = [NSString stringWithFormat:@"https://catalog.data.gov/api/3/action/package_search?q=res_format:WMS&rows=100"];
         NSURL *url = [NSURL URLWithString:string];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
@@ -224,7 +224,7 @@
     dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
         NSLog(@"pull to refresh..");
         // 1
-        NSString *string = [NSString stringWithFormat:@"https://data.noaa.gov/api/3/action/package_search?q=res_format:WMS&rows=20"];
+        NSString *string = [NSString stringWithFormat:@"https://catalog.data.gov/api/3/action/package_search?q=res_format:WMS&rows=100"];
         NSURL *url = [NSURL URLWithString:string];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
@@ -270,11 +270,11 @@
 
 - (void) statefulTableViewControllerWillBeginLoadingNextPage:(JMStatefulTableViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *))failure {
     dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
-        self.numItems+=20;
+        self.numItems+=100;
 NSLog(@"loading next page.. %d",self.numItems);
 
         // 1
-        NSString *string = [NSString stringWithFormat:@"https://data.noaa.gov/api/3/action/package_search?q=res_format:WMS&start=%d&rows=20",self.numItems];
+        NSString *string = [NSString stringWithFormat:@"https://catalog.data.gov/api/3/action/package_search?q=res_format:WMS&start=%d&rows=100",self.numItems];
         NSURL *url = [NSURL URLWithString:string];
         NSLog(@"loading next page.. %@",string);
 

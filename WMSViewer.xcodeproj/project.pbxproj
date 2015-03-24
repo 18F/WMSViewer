@@ -208,10 +208,10 @@
 			isa = PBXGroup;
 			children = (
 				F721CFE81AC0B7A900EEA29C /* MainStoryboard.storyboard */,
-				F721CFE91AC0B7A900EEA29C /* WTResourceTableViewController.m */,
 				F721CFF21AC0E04700EEA29C /* WMSTableViewController.h */,
 				F721CFF31AC0E04700EEA29C /* WMSTableViewController.m */,
 				F721CFEA1AC0B7A900EEA29C /* WTResourceTableViewController.h */,
+				F721CFE91AC0B7A900EEA29C /* WTResourceTableViewController.m */,
 				F721CFEB1AC0B7A900EEA29C /* WTTableViewController.m */,
 				F721CFEC1AC0B7A900EEA29C /* WTTableViewController.h */,
 				F721CFD21AC0B79B00EEA29C /* JMStatefulTableViewController */,

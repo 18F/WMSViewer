@@ -7,7 +7,7 @@
 //
 
 #import "WTResourceTableViewController.h"
-
+#import "WMSTableViewController.h"
 
 @interface WTResourceTableViewController ()
 
@@ -80,10 +80,17 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"WeatherDetailSegue"]){
+    if([segue.identifier isEqualToString:@"WMSSeg"]){
         UITableViewCell *cell = (UITableViewCell *)sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
         
+        WMSTableViewController *wac = (WMSTableViewController *)segue.destinationViewController;
+
+        NSDictionary *w;
+        w = self.results[indexPath.row];
+        NSLog(@"setting result: %@",w);
+        wac.result = w;
+
     }
 }
 
@@ -151,7 +158,7 @@
     
     return cell;
 }
-
+/*
 #pragma mark - Table view delegate
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -164,5 +171,6 @@
      object:layerinfo];
     
 }
+*/
 
 @end

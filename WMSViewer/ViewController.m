@@ -16,14 +16,34 @@
 
 @implementation ViewController
 {
-    WhirlyGlobeViewController *theViewC;
+    MaplyBaseViewController *theViewC;
     WhirlyGlobeViewController *globeViewC;
     MaplyViewController *mapViewC;
+    MaplyQuadImageTilesLayer *backgroundlayer;
 
 }
 
+- (IBAction)ClearLayers:(id)sender
+{
+    NSLog(@"clear all called");
+    [theViewC removeAllLayers];
+    [theViewC addLayer:backgroundlayer];
+
+}
+
+
 // Set this to false for a map
 const bool DoGlobe = true;
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"RemoveLayers"]){
+        NSLog(@"remove layers transition");
+//        WMSTableViewController *wac = (WMSTableViewController *)segue.destinationViewController;
+//        wac.result = w;
+        
+    }
+}
 
 
 - (void)viewDidLoad {
@@ -48,8 +68,8 @@ const bool DoGlobe = true;
     
     // Do any additional setup after loading the view, typically from a nib.
     // this logic makes it work for either globe or map
-    WhirlyGlobeViewController *globeViewC = nil;
-    MaplyViewController *mapViewC = nil;
+  //  WhirlyGlobeViewController *globeViewC = nil;
+  //  MaplyViewController *mapViewC = nil;
     if ([theViewC isKindOfClass:[WhirlyGlobeViewController class]])
         globeViewC = (WhirlyGlobeViewController *)theViewC;
     else
@@ -92,13 +112,18 @@ const bool DoGlobe = true;
         layer = [[MaplyQuadImageTilesLayer alloc]
                  initWithCoordSystem:tileSource.coordSys tileSource:tileSource];
     }
-    NSString *cacheDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)  objectAtIndex:0];
+    
+    backgroundlayer = layer;
+    
+    
+#if 0
+   NSString *cacheDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)  objectAtIndex:0];
     NSString *thisCacheDir = nil;
 
     thisCacheDir = [NSString stringWithFormat:@"%@/wms_layer/",cacheDir];
   /*  [self fetchWMSLayer:@"http://raster.nationalmap.gov/ArcGIS/services/Orthoimagery/USGS_EDC_Ortho_NAIP/ImageServer/WMSServer" layer:@"0" style:nil cacheDir:thisCacheDir ovlName:nil];*/
     [self fetchWMSLayer:@"http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/obs" layer:@"RAS_RIDGE_NEXRAD" style:nil cacheDir:thisCacheDir ovlName:nil];
-
+#endif
     
     
     layer.handleEdges = (globeViewC != nil);
@@ -123,7 +148,7 @@ const bool DoGlobe = true;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(AddWMSLayer:)
-                                                 name:@"AddLayer"
+                                                 name:@"AddWMSLayer"
                                                object:nil];
 
     
@@ -134,15 +159,19 @@ const bool DoGlobe = true;
     // unless you use this method for observation of other notifications
     // as well.
     
-    if ([[notification name] isEqualToString:@"AddLayer"])
+    if ([[notification name] isEqualToString:@"AddWMSLayer"])
     {
-        NSLog (@"Successfully received the test notification! %@",[notification object]);
-        NSDictionary *resource = (NSDictionary *)[notification object];
-        NSString *url = resource[@"url"];
+        NSLog (@"Successfully received the AddWMSLayer notification! %@",[notification object]);
+        NSDictionary *theDict = (NSDictionary *)[notification object];
+        
+    
+        
+        NSString *url = theDict[@"result"][@"url"];
+        MaplyWMSLayer *layer = theDict[@"layer"];
         NSString *cacheDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)  objectAtIndex:0];
         NSString *thisCacheDir = nil;
        thisCacheDir = [NSString stringWithFormat:@"%@/wms_layer/",cacheDir];
-        [self fetchWMSLayer:url layer:@"RAS_RIDGE_NEXRAD" style:nil cacheDir:thisCacheDir ovlName:nil];
+        [self fetchWMSLayer:url layer:layer.name style:nil cacheDir:thisCacheDir ovlName:nil];
 
     }
 }
@@ -157,41 +186,27 @@ const bool DoGlobe = true;
     NSString * capabilitiesURL = nil;
     
     // many of the URLs from CKAN have the capabilities in it already..
-    NSRange range = [baseURL rangeOfString: @"GetCapabilities" options: NSCaseInsensitiveSearch];
+   // NSRange range = [baseURL rangeOfString: @"GetCapabilities" options: NSCaseInsensitiveSearch];
+    NSRange range = [baseURL rangeOfString: @"?" options: NSCaseInsensitiveSearch];
     if (range.location == NSNotFound)
     {
         capabilitiesURL = [MaplyWMSCapabilities CapabilitiesURLFor:baseURL];
     }
     else
     {
-        capabilitiesURL = baseURL;
+//        capabilitiesURL = baseURL;
+        NSArray * parts  = [baseURL componentsSeparatedByString:@"?"];
+        baseURL = parts[0];
+        capabilitiesURL = [MaplyWMSCapabilities CapabilitiesURLFor:baseURL];
+
     }
     
-    
+    NSLog(@"about to load WMS: %@ %@",baseURL,capabilitiesURL);
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:capabilitiesURL]]];
     
-    
-    
-    // AJS
-    
-    //AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    //manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/vnd.ogc.wms_xml"];
-    
-    //[manager setResponseSerializer:[AFXMLParserResponseSerializer new]];
-    
-    
-    
     operation.responseSerializer = [AFXMLParserResponseSerializer serializer];
-    
-    //operation.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/vnd.ogc.wms_xml"];
-    
     operation.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/vnd.ogc.wms_xml",@"text/xml",@"application/xml",nil];
-    
-    
-    
-    
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
