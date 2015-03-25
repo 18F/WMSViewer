@@ -9,8 +9,13 @@
 #import "ViewController.h"
 #import "AFHTTPRequestOperation.h"
 #import <KissXML/DDXML.h>
+#import "LayerTableViewController.h"
+#import "FavoritesTableViewController.h"
 
 @interface ViewController ()
+
+@property (nonatomic) NSMutableArray *layers;
+@property (nonatomic) NSMutableArray *favorites;
 
 @end
 
@@ -26,6 +31,7 @@
 - (IBAction)ClearLayers:(id)sender
 {
     NSLog(@"clear all called");
+    [self.layers removeAllObjects];
     [theViewC removeAllLayers];
     [theViewC addLayer:backgroundlayer];
 
@@ -38,17 +44,53 @@ const bool DoGlobe = true;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"RemoveLayers"]){
-        NSLog(@"remove layers transition");
-//        WMSTableViewController *wac = (WMSTableViewController *)segue.destinationViewController;
-//        wac.result = w;
+        NSLog(@"remove layers transition %@",self.layers);
+        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+        LayerTableViewController *childController = (LayerTableViewController *)navController.childViewControllers.lastObject;
         
+        childController.layers = self.layers;
+        childController.map = theViewC;
+        childController.favorites = self.favorites;
     }
+    else     if([segue.identifier isEqualToString:@"Favorites"]){
+        NSLog(@"favorites layers transition %@",self.layers);
+        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+        FavoritesTableViewController *childController = (FavoritesTableViewController *)navController.childViewControllers.lastObject;
+        
+        childController.favorites = self.favorites;
+
+    }
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    
+    // save favorites
+    // Store the data
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSLog(@"favorites: %@",self.favorites);
+
+    [defaults setObject:self.favorites forKey:@"favorites"];
+    [defaults synchronize];
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Get the stored data before the view loads
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.favorites = [defaults objectForKey: @"favorites"];
+    if (self.favorites == nil)
+    {
+        self.favorites = [[NSMutableArray alloc]init];
+    }
+    
+    NSLog(@"favorites: %@",self.favorites);
+    
+    self.layers = [[NSMutableArray alloc] init];
     
     if (DoGlobe)
     {
@@ -117,13 +159,32 @@ const bool DoGlobe = true;
     
     
 #if 0
-   NSString *cacheDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)  objectAtIndex:0];
+    NSString *cacheDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)  objectAtIndex:0];
     NSString *thisCacheDir = nil;
 
     thisCacheDir = [NSString stringWithFormat:@"%@/wms_layer/",cacheDir];
   /*  [self fetchWMSLayer:@"http://raster.nationalmap.gov/ArcGIS/services/Orthoimagery/USGS_EDC_Ortho_NAIP/ImageServer/WMSServer" layer:@"0" style:nil cacheDir:thisCacheDir ovlName:nil];*/
-    [self fetchWMSLayer:@"http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/obs" layer:@"RAS_RIDGE_NEXRAD" style:nil cacheDir:thisCacheDir ovlName:nil];
+ /*   [self fetchWMSLayer:@"http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/obs" layer:@"RAS_RIDGE_NEXRAD" style:nil cacheDir:thisCacheDir ovlName:nil];*/
+    [self fetchWMSLayer:@"http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/obs" layer:@"world_countries" style:nil cacheDir:thisCacheDir ovlName:nil];
 #endif
+    
+#if 0
+    NSString *cacheDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)  objectAtIndex:0];
+    NSString *thisCacheDir = nil;
+    
+    thisCacheDir = [NSString stringWithFormat:@"%@/wms_layer/",cacheDir];
+    /*  [self fetchWMSLayer:@"http://raster.nationalmap.gov/ArcGIS/services/Orthoimagery/USGS_EDC_Ortho_NAIP/ImageServer/WMSServer" layer:@"0" style:nil cacheDir:thisCacheDir ovlName:nil];*/
+    [self fetchWMSLayer:@"http://gstore.unm.edu/apps/rgis/datasets/7bbe8af5-029b-4adf-b06c-134f0dd57226/services/ogc/wms" layer:@"nps_boundary" style:nil cacheDir:thisCacheDir ovlName:nil];
+#endif
+    
+#if 1
+    NSString *cacheDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)  objectAtIndex:0];
+    NSString *thisCacheDir = nil;
+    
+    thisCacheDir = [NSString stringWithFormat:@"%@/wms_layer/",cacheDir];
+    [self fetchWMSLayer:@"http://gis.ngdc.noaa.gov/arcgis/services/dem_hillshades/ImageServer/WMSServer" layer:@"dem_hillshades" style:nil cacheDir:thisCacheDir ovlName:nil];
+#endif
+
     
     
     layer.handleEdges = (globeViewC != nil);
@@ -153,6 +214,7 @@ const bool DoGlobe = true;
 
     
 }
+#if 0
 - (void) AddWMSLayer:(NSNotification *) notification
 {
     // [notification name] should always be @"TestNotification"
@@ -164,15 +226,37 @@ const bool DoGlobe = true;
         NSLog (@"Successfully received the AddWMSLayer notification! %@",[notification object]);
         NSDictionary *theDict = (NSDictionary *)[notification object];
         
-    
+        
         
         NSString *url = theDict[@"result"][@"url"];
         MaplyWMSLayer *layer = theDict[@"layer"];
         NSString *cacheDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)  objectAtIndex:0];
         NSString *thisCacheDir = nil;
-       thisCacheDir = [NSString stringWithFormat:@"%@/wms_layer/",cacheDir];
+        thisCacheDir = [NSString stringWithFormat:@"%@/wms_layer_%@/",cacheDir,layer.name];
         [self fetchWMSLayer:url layer:layer.name style:nil cacheDir:thisCacheDir ovlName:nil];
+        
+    }
+}
+#endif
+- (void) AddWMSLayer:(NSNotification *) notification
+{
+    // [notification name] should always be @"TestNotification"
+    // unless you use this method for observation of other notifications
+    // as well.
+    
+    if ([[notification name] isEqualToString:@"AddWMSLayer"])
+    {
+        NSLog (@"Successfully received the AddWMSLayer notification! %@",[notification object]);
+        NSDictionary *theDict = (NSDictionary *)[notification object];
+        
+        NSString *url = theDict[@"url"];
+        NSString *name = theDict[@"name"];
 
+        NSString *cacheDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)  objectAtIndex:0];
+        NSString *thisCacheDir = nil;
+        thisCacheDir = [NSString stringWithFormat:@"%@/wms_layer_%@/",cacheDir,name];
+        [self fetchWMSLayer:url layer:name style:nil cacheDir:thisCacheDir ovlName:nil];
+        
     }
 }
 
@@ -303,6 +387,15 @@ const bool DoGlobe = true;
         
       //  [baseViewC addLayer:imageLayer];
          [theViewC addLayer:imageLayer];
+        
+        NSMutableDictionary *thisLayer = [[NSMutableDictionary alloc ] init];
+        
+        [thisLayer setValue:imageLayer forKey:@"layer"];
+        [thisLayer setValue:layerName forKey:@"name"];
+        [thisLayer setValue:layer forKey:@"wmslayer"];
+        [thisLayer setValue:baseURL forKey:@"url"];
+        
+        [self.layers addObject: thisLayer];
         
         
         //if (ovlName)

@@ -11,12 +11,14 @@
 #import "WTTableViewController.h"
 #import "WTResourceTableViewController.h"
 #import "AFHTTPRequestOperation.h"
+//static NSString * const urlprefix = @"https://catalog.data.gov";
+static NSString * const urlprefix = @"https://data.noaa.gov";
+//static NSString * const urlprefix = @"http://data.gov.uk";
 
-@interface WTTableViewController ()
+@interface WTTableViewController ()<UISearchResultsUpdating>
 @property int numItems;
 
 @property (nonatomic) NSMutableArray *results;
-
 @end
 
 @implementation WTTableViewController
@@ -47,6 +49,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (self.ckan==nil)
+        self.ckan = urlprefix;
+    
    // self.navigationController.toolbarHidden = NO;
 
     // Uncomment the following line to preserve selection between presentations.
@@ -181,7 +187,7 @@
     dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
         NSLog(@"initial loading..");
         // 1
-        NSString *string = [NSString stringWithFormat:@"https://catalog.data.gov/api/3/action/package_search?q=res_format:WMS&rows=100"];
+        NSString *string = [NSString stringWithFormat:@"%@/api/3/action/package_search?q=res_format:WMS&rows=100",self.ckan];
         NSURL *url = [NSURL URLWithString:string];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
@@ -224,7 +230,7 @@
     dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
         NSLog(@"pull to refresh..");
         // 1
-        NSString *string = [NSString stringWithFormat:@"https://catalog.data.gov/api/3/action/package_search?q=res_format:WMS&rows=100"];
+        NSString *string = [NSString stringWithFormat:@"%@/api/3/action/package_search?q=res_format:WMS&rows=100",_ckan];
         NSURL *url = [NSURL URLWithString:string];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
@@ -274,7 +280,7 @@
 NSLog(@"loading next page.. %d",self.numItems);
 
         // 1
-        NSString *string = [NSString stringWithFormat:@"https://catalog.data.gov/api/3/action/package_search?q=res_format:WMS&start=%d&rows=100",self.numItems];
+        NSString *string = [NSString stringWithFormat:@"%@/api/3/action/package_search?q=res_format:WMS&start=%d&rows=100",_ckan,self.numItems];
         NSURL *url = [NSURL URLWithString:string];
         NSLog(@"loading next page.. %@",string);
 
@@ -326,6 +332,14 @@ NSLog(@"loading next page.. %d",self.numItems);
 - (BOOL) statefulTableViewControllerShouldPullToRefresh:(JMStatefulTableViewController *)vc
 {
     return false;
+}
+
+#pragma mark - UISearchResultsUpdating
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    // update the filtered array based on the search text
+    NSString *searchText = searchController.searchBar.text;
+    NSLog(@"search text: %@",searchText);
 }
 
 @end

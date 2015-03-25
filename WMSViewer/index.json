@@ -1,0 +1,44 @@
+[
+ {
+ "title": "data.noaa.gov",
+ "url": "https://data.noaa.gov",
+ "type": "usckan",
+ "abstract": "WMS from NOAA Data Catalog"
+ },
+ {
+ "title": "data.gov",
+ "url": "https://catalog.data.gov",
+ "type": "usckan",
+ "abstract": "WMS from US Data Catalog"
+ },
+ {
+ "title": "NOWCast OBS",
+ "url": "http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/obs",
+ "type": "wms",
+ "abstract": "NOWCast Near Real-Time Observations"
+ },
+ {
+ "title": "NOWCast WWA",
+ "url": "http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/wwa",
+ "type": "wms",
+ "abstract": "NOWCast Watches, Warnings and Advisories"
+ },
+ {
+ "title": "NOWCast Analyses",
+ "url": "http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/analyses",
+ "type": "wms",
+ "abstract": "Gridded Weather & Oceanographic Surface Analyses"
+ },
+ {
+ "title": "NOWCast Forecasts",
+ "url": "http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/forecasts",
+ "type": "wms",
+ "abstract": "On-Map Gridded Surface Forecasts"
+ },
+ {
+ "title": "NOWCast Guidance",
+ "url": "http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/guidance",
+ "type": "wms",
+ "abstract": "Forecast Model Guidance"
+ }
+]

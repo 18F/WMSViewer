@@ -171,9 +171,9 @@ operation.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"ap
 // we probably want to throw them the URL and the layer.. interesting
     NSMutableDictionary * theDict = [[NSMutableDictionary alloc] init] ;
     MaplyWMSLayer *layer = self.layers[indexPath.row];
-    [theDict setValue: layer forKey: @"layer"];
-    [theDict setValue: self.result forKey: @"result"];
-    
+    [theDict setValue: layer.name forKey: @"name"];
+    [theDict setValue: self.result[@"url"] forKey: @"url"];
+
     // All instances of TestClass will be notified
     [[NSNotificationCenter defaultCenter]
      postNotificationName:@"AddWMSLayer"

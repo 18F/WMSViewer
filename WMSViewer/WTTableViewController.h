@@ -13,6 +13,7 @@
 
 @interface WTTableViewController : JMStatefulTableViewController
 
+@property(nonatomic, strong) NSString *ckan;
 
 // Actions
 - (IBAction)clear:(id)sender;

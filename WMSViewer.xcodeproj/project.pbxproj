@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7216A4E1AC328B6009D9C09 /* LayerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7216A4D1AC328B6009D9C09 /* LayerTableViewController.m */; };
+		F7216A541AC354AC009D9C09 /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7216A531AC354AC009D9C09 /* FavoritesTableViewController.m */; };
+		F7216A561AC358DD009D9C09 /* index.json in Resources */ = {isa = PBXBuildFile; fileRef = F7216A551AC358DD009D9C09 /* index.json */; };
 		F721CFE11AC0B79B00EEA29C /* JMStatefulTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F721CFD41AC0B79B00EEA29C /* JMStatefulTableViewController.m */; };
 		F721CFE21AC0B79B00EEA29C /* JMStatefulTableViewEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = F721CFD61AC0B79B00EEA29C /* JMStatefulTableViewEmptyView.m */; };
 		F721CFE31AC0B79B00EEA29C /* JMStatefulTableViewErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F721CFD81AC0B79B00EEA29C /* JMStatefulTableViewErrorView.m */; };
@@ -62,6 +65,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F7216A4C1AC328B6009D9C09 /* LayerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerTableViewController.h; sourceTree = "<group>"; };
+		F7216A4D1AC328B6009D9C09 /* LayerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayerTableViewController.m; sourceTree = "<group>"; };
+		F7216A521AC354AC009D9C09 /* FavoritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesTableViewController.h; sourceTree = "<group>"; };
+		F7216A531AC354AC009D9C09 /* FavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesTableViewController.m; sourceTree = "<group>"; };
+		F7216A551AC358DD009D9C09 /* index.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = index.json; sourceTree = "<group>"; };
 		F721CFD31AC0B79B00EEA29C /* JMStatefulTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMStatefulTableViewController.h; sourceTree = "<group>"; };
 		F721CFD41AC0B79B00EEA29C /* JMStatefulTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMStatefulTableViewController.m; sourceTree = "<group>"; };
 		F721CFD51AC0B79B00EEA29C /* JMStatefulTableViewEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMStatefulTableViewEmptyView.h; sourceTree = "<group>"; };
@@ -208,20 +216,24 @@
 			isa = PBXGroup;
 			children = (
 				F721CFE81AC0B7A900EEA29C /* MainStoryboard.storyboard */,
+				F7216A521AC354AC009D9C09 /* FavoritesTableViewController.h */,
+				F7216A531AC354AC009D9C09 /* FavoritesTableViewController.m */,
+				F7216A4C1AC328B6009D9C09 /* LayerTableViewController.h */,
+				F7216A4D1AC328B6009D9C09 /* LayerTableViewController.m */,
 				F721CFF21AC0E04700EEA29C /* WMSTableViewController.h */,
 				F721CFF31AC0E04700EEA29C /* WMSTableViewController.m */,
 				F721CFEA1AC0B7A900EEA29C /* WTResourceTableViewController.h */,
 				F721CFE91AC0B7A900EEA29C /* WTResourceTableViewController.m */,
 				F721CFEB1AC0B7A900EEA29C /* WTTableViewController.m */,
 				F721CFEC1AC0B7A900EEA29C /* WTTableViewController.h */,
+				F761F1951AB08F270072382A /* ViewController.h */,
+				F761F1961AB08F270072382A /* ViewController.m */,
 				F721CFD21AC0B79B00EEA29C /* JMStatefulTableViewController */,
 				F721CFDB1AC0B79B00EEA29C /* SVPullToRefresh */,
 				F7BC51091AB098CA00AD5EFD /* AFNetworking */,
 				F7BC51041AB0930100AD5EFD /* Resources */,
 				F761F1921AB08F270072382A /* AppDelegate.h */,
 				F761F1931AB08F270072382A /* AppDelegate.m */,
-				F761F1951AB08F270072382A /* ViewController.h */,
-				F761F1961AB08F270072382A /* ViewController.m */,
 				F761F1981AB08F270072382A /* Main.storyboard */,
 				F761F19B1AB08F270072382A /* Images.xcassets */,
 				F761F19D1AB08F270072382A /* LaunchScreen.xib */,
@@ -268,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				F7BC51071AB0935600AD5EFD /* geography-class_medres.mbtiles */,
+				F7216A551AC358DD009D9C09 /* index.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -396,6 +409,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7216A561AC358DD009D9C09 /* index.json in Resources */,
 				F7BC51081AB0935600AD5EFD /* geography-class_medres.mbtiles in Resources */,
 				F721CFED1AC0B7A900EEA29C /* MainStoryboard.storyboard in Resources */,
 				F761F19A1AB08F270072382A /* Main.storyboard in Resources */,
@@ -425,6 +439,8 @@
 				F7BC51201AB098CA00AD5EFD /* AFNetworkReachabilityManager.m in Sources */,
 				F721CFF41AC0E04700EEA29C /* WMSTableViewController.m in Sources */,
 				F7BC51241AB098CA00AD5EFD /* AFURLResponseSerialization.m in Sources */,
+				F7216A4E1AC328B6009D9C09 /* LayerTableViewController.m in Sources */,
+				F7216A541AC354AC009D9C09 /* FavoritesTableViewController.m in Sources */,
 				F721CFE11AC0B79B00EEA29C /* JMStatefulTableViewController.m in Sources */,
 				F7BC51221AB098CA00AD5EFD /* AFURLConnectionOperation.m in Sources */,
 				F7BC51211AB098CA00AD5EFD /* AFSecurityPolicy.m in Sources */,
