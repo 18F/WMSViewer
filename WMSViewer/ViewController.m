@@ -106,7 +106,7 @@ const bool DoGlobe = true;
     [self.view insertSubview:theViewC.view belowSubview:self.AddLayer];
     theViewC.view.frame = self.view.bounds;
     [self addChildViewController:theViewC];
-
+    [self.view sendSubviewToBack: theViewC.view ];
     
     // Do any additional setup after loading the view, typically from a nib.
     // this logic makes it work for either globe or map

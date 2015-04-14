@@ -20,10 +20,10 @@
 		F721CFEE1AC0B7A900EEA29C /* WTResourceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F721CFE91AC0B7A900EEA29C /* WTResourceTableViewController.m */; };
 		F721CFEF1AC0B7A900EEA29C /* WTTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F721CFEB1AC0B7A900EEA29C /* WTTableViewController.m */; };
 		F721CFF41AC0E04700EEA29C /* WMSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F721CFF31AC0E04700EEA29C /* WMSTableViewController.m */; };
+		F74659BA1ADC558D0012EAF5 /* GeoPlatformTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74659B91ADC558D0012EAF5 /* GeoPlatformTableViewController.m */; };
 		F761F1911AB08F270072382A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F761F1901AB08F270072382A /* main.m */; };
 		F761F1941AB08F270072382A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F761F1931AB08F270072382A /* AppDelegate.m */; };
 		F761F1971AB08F270072382A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F761F1961AB08F270072382A /* ViewController.m */; };
-		F761F19A1AB08F270072382A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F761F1981AB08F270072382A /* Main.storyboard */; };
 		F761F19C1AB08F270072382A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F761F19B1AB08F270072382A /* Images.xcassets */; };
 		F761F19F1AB08F270072382A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F761F19D1AB08F270072382A /* LaunchScreen.xib */; };
 		F761F1AB1AB08F270072382A /* WMSViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F761F1AA1AB08F270072382A /* WMSViewerTests.m */; };
@@ -90,6 +90,8 @@
 		F721CFEC1AC0B7A900EEA29C /* WTTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTableViewController.h; sourceTree = "<group>"; };
 		F721CFF21AC0E04700EEA29C /* WMSTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMSTableViewController.h; sourceTree = "<group>"; };
 		F721CFF31AC0E04700EEA29C /* WMSTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMSTableViewController.m; sourceTree = "<group>"; };
+		F74659B81ADC558D0012EAF5 /* GeoPlatformTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoPlatformTableViewController.h; sourceTree = "<group>"; };
+		F74659B91ADC558D0012EAF5 /* GeoPlatformTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoPlatformTableViewController.m; sourceTree = "<group>"; };
 		F761F18B1AB08F270072382A /* WMSViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WMSViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F761F18F1AB08F270072382A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F761F1901AB08F270072382A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -97,7 +99,6 @@
 		F761F1931AB08F270072382A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F761F1951AB08F270072382A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F761F1961AB08F270072382A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		F761F1991AB08F270072382A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F761F19B1AB08F270072382A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F761F19E1AB08F270072382A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F761F1A41AB08F270072382A /* WMSViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WMSViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,6 +225,8 @@
 				F721CFF31AC0E04700EEA29C /* WMSTableViewController.m */,
 				F721CFEA1AC0B7A900EEA29C /* WTResourceTableViewController.h */,
 				F721CFE91AC0B7A900EEA29C /* WTResourceTableViewController.m */,
+				F74659B81ADC558D0012EAF5 /* GeoPlatformTableViewController.h */,
+				F74659B91ADC558D0012EAF5 /* GeoPlatformTableViewController.m */,
 				F721CFEB1AC0B7A900EEA29C /* WTTableViewController.m */,
 				F721CFEC1AC0B7A900EEA29C /* WTTableViewController.h */,
 				F761F1951AB08F270072382A /* ViewController.h */,
@@ -234,7 +237,6 @@
 				F7BC51041AB0930100AD5EFD /* Resources */,
 				F761F1921AB08F270072382A /* AppDelegate.h */,
 				F761F1931AB08F270072382A /* AppDelegate.m */,
-				F761F1981AB08F270072382A /* Main.storyboard */,
 				F761F19B1AB08F270072382A /* Images.xcassets */,
 				F761F19D1AB08F270072382A /* LaunchScreen.xib */,
 				F761F18E1AB08F270072382A /* Supporting Files */,
@@ -412,7 +414,6 @@
 				F7216A561AC358DD009D9C09 /* index.json in Resources */,
 				F7BC51081AB0935600AD5EFD /* geography-class_medres.mbtiles in Resources */,
 				F721CFED1AC0B7A900EEA29C /* MainStoryboard.storyboard in Resources */,
-				F761F19A1AB08F270072382A /* Main.storyboard in Resources */,
 				F761F19F1AB08F270072382A /* LaunchScreen.xib in Resources */,
 				F761F19C1AB08F270072382A /* Images.xcassets in Resources */,
 			);
@@ -436,6 +437,7 @@
 				F7BC511D1AB098CA00AD5EFD /* AFHTTPRequestOperation.m in Sources */,
 				F761F1971AB08F270072382A /* ViewController.m in Sources */,
 				F7BC511E1AB098CA00AD5EFD /* AFHTTPRequestOperationManager.m in Sources */,
+				F74659BA1ADC558D0012EAF5 /* GeoPlatformTableViewController.m in Sources */,
 				F7BC51201AB098CA00AD5EFD /* AFNetworkReachabilityManager.m in Sources */,
 				F721CFF41AC0E04700EEA29C /* WMSTableViewController.m in Sources */,
 				F7BC51241AB098CA00AD5EFD /* AFURLResponseSerialization.m in Sources */,
@@ -477,14 +479,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F761F1981AB08F270072382A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F761F1991AB08F270072382A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F761F19D1AB08F270072382A /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -591,6 +585,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -611,6 +606,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

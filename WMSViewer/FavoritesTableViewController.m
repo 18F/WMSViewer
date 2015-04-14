@@ -9,6 +9,7 @@
 #import "FavoritesTableViewController.h"
 #import "WMSTableViewController.h"
 #import "WTTableViewController.h"
+#import "GeoplatformTableViewController.h"
 
 @interface FavoritesTableViewController ()
 
@@ -158,8 +159,15 @@
                 UIStoryboard *MainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
                 WTTableViewController *info=[MainStoryboard instantiateViewControllerWithIdentifier:@"WTController"];
                 info.ckan = item[@"url"];
-                // [[self presentingViewController] pushViewController:info animated:YES completion:nil];
-                
+                [self.navigationController pushViewController:info animated:YES ];
+
+            }
+            else if ([item[@"type"] isEqualToString: @"geoplatform"])
+            {
+                NSLog(@"geoplatform: %@",item);
+                UIStoryboard *MainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
+                GeoPlatformTableViewController *info=[MainStoryboard instantiateViewControllerWithIdentifier:@"GeoPlatformController"];
+                info.geoplatform = item[@"url"];
                 [self.navigationController pushViewController:info animated:YES ];
 
             }
@@ -174,6 +182,19 @@
     
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    switch (section)
+    {
+        case 0:
+        return @"Favorites";
+        break;
+        case 1:
+        return @"Data Catalogs";
+        break;
+    }
+    return @"";
+}
 
 /*
 #pragma mark - Navigation

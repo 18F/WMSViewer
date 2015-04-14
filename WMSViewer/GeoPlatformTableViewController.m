@@ -1,28 +1,25 @@
 //
-//  WTTableViewController.m
-//  Weather
+//  GeoPlatformTableViewController.m
+//  WMSViewer
 //
-//  Created by Scott on 26/01/2013.
-//  Updated by Joshua Greene 16/12/2013.
-//
-//  Copyright (c) 2013 Scott Sherwood. All rights reserved.
+//  Created by Alan Steremberg on 4/13/15.
+//  Copyright (c) 2015 Alan Steremberg. All rights reserved.
 //
 
-#import "WTTableViewController.h"
+#import "GeoPlatformTableViewController.h"
 #import "WTResourceTableViewController.h"
 #import "AFHTTPRequestOperation.h"
-//static NSString * const urlprefix = @"https://catalog.data.gov";
-static NSString * const urlprefix = @"https://data.noaa.gov";
-//static NSString * const urlprefix = @"http://data.gov.uk";
+#import "WMSTableViewController.h"
 
-@interface WTTableViewController ()<UISearchResultsUpdating>
+@interface GeoPlatformTableViewController ()<UISearchResultsUpdating>
 @property int numItems;
-
 @property (nonatomic) NSMutableArray *results;
-@property (nonatomic) NSMutableArray *tags;
 @end
 
-@implementation WTTableViewController
+@implementation GeoPlatformTableViewController
+
+
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -30,7 +27,6 @@ static NSString * const urlprefix = @"https://data.noaa.gov";
     if (self) {
         self.numItems = 0;
         self.results = nil;
-        self.tags=nil;
         // Custom initialization
     }
     return self;
@@ -44,8 +40,7 @@ static NSString * const urlprefix = @"https://data.noaa.gov";
     {
         self.numItems = 0;
         self.results = nil;
-        self.tags=nil;
- 
+        
     }
     return self;
 }
@@ -53,22 +48,12 @@ static NSString * const urlprefix = @"https://data.noaa.gov";
 {
     [super viewDidLoad];
     
-    if (self.ckan==nil)
-        self.ckan = urlprefix;
-    
-   // self.navigationController.toolbarHidden = NO;
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     NSLog(@"View Will Appear");
     [super viewWillAppear:animated];
-
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,18 +67,11 @@ static NSString * const urlprefix = @"https://data.noaa.gov";
     if([segue.identifier isEqualToString:@"WeatherDetailSegue"]){
         UITableViewCell *cell = (UITableViewCell *)sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-        if (indexPath.section==0)
-        {
-        
-        }
-        else
-        {
-        WTResourceTableViewController *wac = (WTResourceTableViewController *)segue.destinationViewController;
-        
-        NSDictionary *w;
-        w = self.results[indexPath.row];
-        wac.result = w;
-        }
+            WTResourceTableViewController *wac = (WTResourceTableViewController *)segue.destinationViewController;
+            
+            NSDictionary *w;
+            w = self.results[indexPath.row];
+            wac.result = w;
     }
 }
 
@@ -138,33 +116,24 @@ static NSString * const urlprefix = @"https://data.noaa.gov";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (self.tags!=nil && [self.tags count])
-        return 2;
-    else
         return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSLog(@"number of rows, section: %d",section);
-
+    
     switch(section)
     {
         case 0:
-        if(!self.tags)
-            return 0;
-        NSLog(@"tags rows: %d",[self.tags count]);
-        return [self.tags count];
-
-        break;
         case 1:
-        if(!self.results)
-            return 0;
-        NSLog(@"results rows: %d",[self.results count]);
-        return [self.results count];
-        break;
+            if(!self.results)
+                return 0;
+            NSLog(@"results rows: %d",[self.results count]);
+            return [self.results count];
+            break;
     }
-
+    
     return 0;
 }
 
@@ -173,11 +142,9 @@ static NSString * const urlprefix = @"https://data.noaa.gov";
     switch (section)
     {
         case 0:
-        return @"Tag Facets";
-        break;
         case 1:
-        return @"Data Sets";
-        break;
+            return @"Data Sets";
+            break;
     }
     return @"";
 }
@@ -185,28 +152,24 @@ static NSString * const urlprefix = @"https://data.noaa.gov";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"WeatherCell";
+    static NSString *CellIdentifier = @"GeoCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     switch (indexPath.section) {
-
+            
         case 0:
-        {
-            NSDictionary *dict = self.tags[indexPath.row];
-            NSString *label = [NSString stringWithFormat:@"%@ (%@)", dict[@"display_name"],dict[@"count"] ];
-            cell.textLabel.text = label;
-        }
-        break;
         case 1:
         {
             NSDictionary *dict = self.results[indexPath.row];
-           cell.textLabel.text = dict[@"title"];
+            cell.textLabel.text = dict[@"label"];
+            cell.detailTextLabel.text = dict[@"esri"];
+
         }
-       break;
+            break;
     }
     
     
-
+    
     return cell;
 }
 
@@ -216,17 +179,15 @@ static NSString * const urlprefix = @"https://data.noaa.gov";
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    // we have to think about what to do with section 0
-    if (indexPath.section==0)
-    {
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    }
-    else
-    {
-        [self performSegueWithIdentifier:@"WeatherDetailSegue" sender:cell];
+    NSDictionary *item = self.results[indexPath.row];
 
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    }
+    NSLog(@"WMS: %@",item);
+    UIStoryboard *MainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
+    WMSTableViewController *info=[MainStoryboard instantiateViewControllerWithIdentifier:@"WMSController"];
+    info.result = item;
+   // item[@"title"]=item[@"label"];
+    
+    [self.navigationController pushViewController:info animated:YES ];
 }
 
 
@@ -235,7 +196,7 @@ static NSString * const urlprefix = @"https://data.noaa.gov";
     dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
         NSLog(@"initial loading..");
         // 1
-        NSString *string = [NSString stringWithFormat:@"%@/api/3/action/package_search?q=res_format:WMS&rows=100&facet=true&facet.field=tags",self.ckan];
+        NSString *string = [NSString stringWithFormat:@"%@?count=100&includeFacets=false&sortElement=label&sortOrder=asc",self.geoplatform];
         NSURL *url = [NSURL URLWithString:string];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
@@ -247,18 +208,16 @@ static NSString * const urlprefix = @"https://data.noaa.gov";
             
             // 3
             
-            self.results = [NSMutableArray arrayWithArray:responseObject[@"result"][@"results"]];
+            self.results = [NSMutableArray arrayWithArray:responseObject[@"results"]];
             
-            self.tags = [NSMutableArray arrayWithArray:responseObject[@"result"][@"search_facets"][@"tags"][@"items"]];
-
-
-//            self.tags = [self.tags sortedArrayUsingSelector:@selector(???)];
+            
+            
             self.title = @"JSON Retrieved";
             [self.tableView reloadData];
             dispatch_async(dispatch_get_main_queue(), ^{
                 success();
             });
-
+            
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             
@@ -281,7 +240,7 @@ static NSString * const urlprefix = @"https://data.noaa.gov";
     dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
         NSLog(@"pull to refresh..");
         // 1
-        NSString *string = [NSString stringWithFormat:@"%@/api/3/action/package_search?q=res_format:WMS&rows=100&facet=true&facet.field=tags",_ckan];
+        NSString *string = [NSString stringWithFormat:@"%@?count=100&includeFacets=false&sortElement=label&sortOrder=asc",_geoplatform];
         NSURL *url = [NSURL URLWithString:string];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
@@ -292,24 +251,23 @@ static NSString * const urlprefix = @"https://data.noaa.gov";
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             
             // 3
-            [self.results arrayByAddingObjectsFromArray: responseObject[@"result"][@"results"]];
-            [self.tags arrayByAddingObjectsFromArray: responseObject[@"result"][@"search_facets"][@"tags"][@"items"]];
-
+            [self.results arrayByAddingObjectsFromArray: responseObject[@"results"]];
+            
             self.title = @"JSON Retrieved";
             //[self.tableView reloadData];
             
-                NSMutableArray *a = [NSMutableArray array];
-                
-                for(NSInteger i = 0; i < [self.results count]; i++) {
-                    [a addObject:[NSIndexPath indexPathForRow:i inSection:0]];
-                }
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    success([NSArray arrayWithArray:a]);
-                });
+            NSMutableArray *a = [NSMutableArray array];
+            
+            for(NSInteger i = 0; i < [self.results count]; i++) {
+                [a addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                success([NSArray arrayWithArray:a]);
+            });
             
             
-       
+            
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             
             // 4
@@ -320,8 +278,8 @@ static NSString * const urlprefix = @"https://data.noaa.gov";
                                                       otherButtonTitles:nil];
             [alertView show];
         }];
-         [operation start];
-
+        [operation start];
+        
     });
 }
 
@@ -329,13 +287,13 @@ static NSString * const urlprefix = @"https://data.noaa.gov";
 - (void) statefulTableViewControllerWillBeginLoadingNextPage:(JMStatefulTableViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *))failure {
     dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
         self.numItems+=100;
-NSLog(@"loading next page.. %d",self.numItems);
-
+        NSLog(@"loading next page.. %d",self.numItems);
+        
         // 1
-        NSString *string = [NSString stringWithFormat:@"%@/api/3/action/package_search?q=res_format:WMS&start=%d&rows=100&facet=true&facet.field=tags",_ckan,self.numItems];
+        NSString *string = [NSString stringWithFormat:@"%@?count=100&includeFacets=false&sortElement=label&sortOrder=asc&start=%d",_geoplatform,_numItems];
         NSURL *url = [NSURL URLWithString:string];
         NSLog(@"loading next page.. %@",string);
-
+        
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
         // 2
@@ -345,11 +303,10 @@ NSLog(@"loading next page.. %d",self.numItems);
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             
             // 3
-
-            [self.results addObjectsFromArray: responseObject[@"result"][@"results"]];
-            [self.tags addObjectsFromArray: responseObject[@"result"][@"search_facets"][@"tags"][@"items"]];
+            
+            [self.results addObjectsFromArray: responseObject[@"results"]];
             NSLog(@"arows: %d",[self.results count]);
-
+            
             self.title = @"JSON Retrieved";
             [self.tableView reloadData];
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -378,7 +335,7 @@ NSLog(@"loading next page.. %d",self.numItems);
 
 - (BOOL) statefulTableViewControllerShouldBeginLoadingNextPage:(JMStatefulTableViewController *)vc {
     NSLog(@"should begin next page..");
-   return true;
+    return true;
 }
 
 

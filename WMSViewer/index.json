@@ -12,33 +12,71 @@
  "abstract": "WMS from US Data Catalog"
  },
  {
- "title": "NOWCast OBS",
- "url": "http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/obs",
- "type": "wms",
- "abstract": "NOWCast Near Real-Time Observations"
+ "title": "GeoPlatform",
+ "url": "http://wmv2.geoplatform.us/api/layers",
+ "type": "geoplatform",
+ "abstract": "Geoplatform list of layers"
  },
  {
- "title": "NOWCast WWA",
+ "title": "NOWCoast OBS",
+ "url": "http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/obs",
+ "type": "wms",
+ "abstract": "NOWCoast Near Real-Time Observations"
+ },
+ {
+ "title": "NOWCoast WWA",
  "url": "http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/wwa",
  "type": "wms",
  "abstract": "NOWCast Watches, Warnings and Advisories"
  },
  {
- "title": "NOWCast Analyses",
+ "title": "NOWCoast Analyses",
  "url": "http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/analyses",
  "type": "wms",
  "abstract": "Gridded Weather & Oceanographic Surface Analyses"
  },
  {
- "title": "NOWCast Forecasts",
+ "title": "NOWCoast Forecasts",
  "url": "http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/forecasts",
  "type": "wms",
  "abstract": "On-Map Gridded Surface Forecasts"
  },
  {
- "title": "NOWCast Guidance",
+ "title": "NOWCoast Guidance",
  "url": "http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/guidance",
  "type": "wms",
  "abstract": "Forecast Model Guidance"
+ },
+ {
+ "title": "NOAA Navigational Charts",
+ "url": "http://seamlessrnc.nauticalcharts.noaa.gov/arcgis/services/RNC/NOAA_RNC/ImageServer/WMSServer",
+ "type": "wms",
+ "abstract": "Seamless Raster Navigational Chart"
+ },
+ {
+ "title": "NOAA Navigational Charts",
+ "url": "http://encdirect.noaa.gov/arcgis/services/encdirect/enc_berthing/MapServer/WMSServer",
+ "type": "wms",
+ "abstract": "enc berthing"
+ },
+ {
+ "title": "NDFD",
+ "url": "http://gis.srh.noaa.gov/arcgis/services/NDFDTemps/MapServer/WMSServer",
+ "type": "wms",
+ "abstract": "ndfd"
+ },
+ {
+ "title": "NEW Nowcoast nexrad",
+ "url": "http://new.nowcoast.noaa.gov/arcgis/services/nowcoast/radar_meteo_imagery_nexrad_time/MapServer/WMSServer",
+ "type": "wms",
+ "abstract": "nexrad time"
+ },
+ {
+ "title": "Sea Level Rise",
+ "url": "http://maps.coast.noaa.gov/arcgis/services/dc_slr/slr_6ft/MapServer/WMSServer",
+ "type": "wms",
+ "abstract": "Sea Level Rise"
  }
+ 
+ 
 ]
