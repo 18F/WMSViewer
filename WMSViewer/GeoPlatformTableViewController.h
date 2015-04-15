@@ -12,6 +12,6 @@
 @interface GeoPlatformTableViewController : JMStatefulTableViewController
 
 @property(nonatomic, strong) NSString *geoplatform;
-
+@property IBOutlet UISearchBar *geoSearchBar;
 @end
 

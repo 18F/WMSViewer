@@ -11,9 +11,12 @@
 #import "AFHTTPRequestOperation.h"
 #import "WMSTableViewController.h"
 
-@interface GeoPlatformTableViewController ()<UISearchResultsUpdating>
+@interface GeoPlatformTableViewController ()<UISearchResultsUpdating, UISearchBarDelegate>
 @property int numItems;
 @property (nonatomic) NSMutableArray *results;
+@property NSString *search;
+@property (nonatomic, strong) UISearchController *searchController;
+
 @end
 
 @implementation GeoPlatformTableViewController
@@ -27,6 +30,8 @@
     if (self) {
         self.numItems = 0;
         self.results = nil;
+        self.search =@"";
+        
         // Custom initialization
     }
     return self;
@@ -40,14 +45,24 @@
     {
         self.numItems = 0;
         self.results = nil;
-        
+        self.search =@"";
     }
     return self;
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     
+    self.searchController.searchResultsUpdater = self;
+    
+    self.searchController.dimsBackgroundDuringPresentation = NO;
+    self.searchController.hidesNavigationBarDuringPresentation = NO;
+    
+    self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0);
+    
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -162,7 +177,10 @@
         {
             NSDictionary *dict = self.results[indexPath.row];
             cell.textLabel.text = dict[@"label"];
-            cell.detailTextLabel.text = dict[@"esri"];
+            if ([dict[@"service"][@"esri"] boolValue] == true)
+                cell.detailTextLabel.text = @"Esri Rest";
+            else
+                cell.detailTextLabel.text = @"WMS";
 
         }
             break;
@@ -196,7 +214,7 @@
     dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
         NSLog(@"initial loading..");
         // 1
-        NSString *string = [NSString stringWithFormat:@"%@?count=100&includeFacets=false&sortElement=label&sortOrder=asc",self.geoplatform];
+        NSString *string = [NSString stringWithFormat:@"%@?count=100&includeFacets=false&sortElement=label&sortOrder=asc&text=%@",self.geoplatform,self.search];
         NSURL *url = [NSURL URLWithString:string];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
@@ -240,7 +258,7 @@
     dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
         NSLog(@"pull to refresh..");
         // 1
-        NSString *string = [NSString stringWithFormat:@"%@?count=100&includeFacets=false&sortElement=label&sortOrder=asc",_geoplatform];
+        NSString *string = [NSString stringWithFormat:@"%@?count=100&includeFacets=false&sortElement=label&sortOrder=asc&text=%@",_geoplatform,_search];
         NSURL *url = [NSURL URLWithString:string];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
@@ -290,7 +308,7 @@
         NSLog(@"loading next page.. %d",self.numItems);
         
         // 1
-        NSString *string = [NSString stringWithFormat:@"%@?count=100&includeFacets=false&sortElement=label&sortOrder=asc&start=%d",_geoplatform,_numItems];
+        NSString *string = [NSString stringWithFormat:@"%@?count=100&includeFacets=false&sortElement=label&sortOrder=asc&start=%d&text=%@",_geoplatform,_numItems,_search];
         NSURL *url = [NSURL URLWithString:string];
         NSLog(@"loading next page.. %@",string);
         
@@ -344,12 +362,37 @@
     return false;
 }
 
+- (void) statefulTableViewController:(JMStatefulTableViewController *)vc didTransitionToState:(JMStatefulTableViewControllerState)state
+{
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+
+}
+
 #pragma mark - UISearchResultsUpdating
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     // update the filtered array based on the search text
     NSString *searchText = searchController.searchBar.text;
-    NSLog(@"search text: %@",searchText);
+    NSLog(@"asearch text: %@",searchText);
+    _search = searchText;
+    // change the query
+    [ _results removeAllObjects];
+    [ self loadNewer];
+    
+}
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
+    
+    NSLog(@"bsearch text: %@",searchText);
+
+
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    NSLog(@"csearch text: %@",searchString);
+
+
+    return YES;
 }
 
 @end

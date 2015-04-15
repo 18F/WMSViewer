@@ -278,13 +278,43 @@ const bool DoGlobe = true;
     }
     else
     {
-//        capabilitiesURL = baseURL;
+        //        capabilitiesURL = baseURL;
         NSArray * parts  = [baseURL componentsSeparatedByString:@"?"];
-        baseURL = parts[0];
-        capabilitiesURL = [MaplyWMSCapabilities CapabilitiesURLFor:baseURL];
-
+        capabilitiesURL = [MaplyWMSCapabilities CapabilitiesURLFor:parts[0]];
+        
+        NSURLComponents * url = [NSURLComponents componentsWithString: baseURL];
+        NSURLComponents * wmsurl = [NSURLComponents componentsWithString: capabilitiesURL];
+        NSArray * queryItemsURL = [url queryItems];
+        NSArray * queryItemsWMS = [wmsurl queryItems];
+        
+        NSMutableArray * newquery = [NSMutableArray arrayWithArray: queryItemsURL ] ;
+        // deal with a URL like: http://bison.usgs.ornl.gov/bison/api/wms?tsn=18032 we can't strip off the tsn or we lose the endpoint
+        for (NSURLQueryItem *item in queryItemsWMS)
+        {
+            NSURLQueryItem * found = nil;
+            //if it is already in there overwrite.. else add
+            for (NSURLQueryItem *newitem in newquery)
+            {
+                if (![newitem.name caseInsensitiveCompare: item.name ])
+                {
+                    found = newitem;
+                    break;
+                }
+            }
+            if (found!=nil)
+            {
+                [newquery removeObject: found];
+            }
+            [newquery addObject:item];
+            
+        }
+        
+        [url setQueryItems: newquery];
+        
+        capabilitiesURL = [url string];
+        
+        
     }
-    
     NSLog(@"about to load WMS: %@ %@",baseURL,capabilitiesURL);
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:capabilitiesURL]]];
